@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xmlns:c="http://www.springframework.org/schema/c"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 集合属性注入 简便写法 -->
+    
+    <bean name="school1" class="com.wmz.di06.School">
+    	<property name="sname" value="清华大学"></property>
+    </bean>
+    
+    <bean name="school2" class="com.wmz.di06.School">
+    	<property name="sname" value="北京大学"></property>
+    </bean>
+   	
+    <bean name="some" class="com.wmz.di06.Some">
+    	<!-- 为数组注入值 -->
+    	<property name="arrs" value="abc,def"></property>
+    	<property name="schools">
+    		<array>
+    			<ref bean="school1"/>
+    			<ref bean="school2"/>
+    		</array>
+    	</property>
+    	<!-- 为List集合注入值 -->
+    	<property name="mylist" value="张三,李四" />
+    	<!-- 为Set集合注入值 -->
+    	<property name="myset" value="中国北京,中国太原"/>
+    	<!-- 为Map集合注入值 -->
+    	<property name="mymap">
+    		<map>
+    			<entry key="QQ" value="1401562356" />
+    			<entry key="wechat" value="56156165" />
+    		</map>
+    	</property>
+    	<!-- 为properties注入值 -->
+    	<property name="mypros">
+    		<props>
+    			<prop key="地址">大族企业湾</prop>
+    			<prop key="名称">北京动力节点</prop>
+    		</props>
+    	</property>
+    
+    </bean>
+    
+
+</beans>

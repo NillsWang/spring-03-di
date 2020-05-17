@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 域属性自动注入 -->
+    <!-- bean definition here -->
+   	<!-- byName方式自动注入：将域属性名作为id到容器中查找相同名称的bean进行自动注入 -->
+    <bean name="myStudent" class="com.wmz.di07.Student" autowire="byName">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="张三"></property>
+    	<property name="age" value="23"></property>
+    </bean>
+    <!-- school对应myStudent中school属性 -->
+    <bean name="school" class="com.wmz.di07.School">
+    	<property name="sname" value="清华大学"></property>
+    </bean>
+
+</beans>

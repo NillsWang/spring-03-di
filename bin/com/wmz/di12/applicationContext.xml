@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 内部匿名bean注入 -->
+    <!-- bean definition here -->
+   	<!-- byType方式自动注入：根据域属性的类型到容器中查找相同类型bean进行自动注入
+   		，不允许有多个相同类型的bean对象，只能有一个  -->
+    <bean name="myStudent" class="com.wmz.di12.Student">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="张三"></property>
+    	<property name="age" value="23"></property>
+    	<property name="school">
+    		<!-- 内部匿名bean -->
+    		<bean class="com.wmz.di12.School">
+    			<property name="sname" value="清华大学"></property>
+    		</bean>
+    	</property>
+    </bean>
+
+</beans>

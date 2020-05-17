@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 构造注入 -->
+    <!-- bean definition here -->
+   	
+    <bean name="myStudent" class="com.wmz.di02.Student">
+    	<!-- 用到了代参的构造方法，从0开始计第一个属性  -->
+    	<!-- <constructor-arg index="0" value="李四"></constructor-arg>
+    	<constructor-arg index="1" value="24"></constructor-arg>
+    	<constructor-arg index="2" ref="mySchool"></constructor-arg> -->
+    	<!-- 用到了代参的构造方法，需要保证顺序和构造器一样  -->
+    	<!-- <constructor-arg value="李四"></constructor-arg>
+    	<constructor-arg value="24"></constructor-arg>
+    	<constructor-arg ref="mySchool"></constructor-arg>  -->
+    	<!-- 一般使用下面注入方式 -->
+    	<constructor-arg name="name" value="李四"></constructor-arg>
+    	<constructor-arg name="age" value="24"></constructor-arg>
+    	<constructor-arg name="school" ref="mySchool"></constructor-arg> 
+    </bean>
+    
+    <bean name="mySchool" class="com.wmz.di02.School">
+    	<property name="sname" value="清华大学"></property>
+    </bean>
+
+</beans>

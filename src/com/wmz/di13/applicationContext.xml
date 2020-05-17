@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 同类抽象bean注入 -->
+    <!-- bean definition here -->
+    
+    <!-- 同类抽象bean -->
+    <bean name="baseStudent" class="com.wmz.di13.Student" abstract="true">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="school" value="清华大学"></property>
+    	<property name="dapartment" value="计算机学院"></property>
+    </bean>
+    
+    <bean name="student1" parent="baseStudent" >
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="张三"></property>
+    	<property name="age" value="23"></property>
+    </bean>
+    
+    <bean name="student2" parent="baseStudent">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="李四"></property>
+    	<property name="age" value="24"></property>
+    </bean>
+    
+    <bean name="student3" parent="baseStudent">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="王五"></property>
+    	<property name="age" value="25"></property>
+    </bean>
+    
+    
+</beans>

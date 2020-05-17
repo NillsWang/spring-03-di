@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 设值注入 -->
+    <!-- bean definition here -->
+   	
+    <bean name="myStudent" class="com.wmz.di01.Student">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="张三"></property>
+    	<property name="age" value="23"></property>
+    	<!-- 引用School对象 -->
+    	<property name="school" ref="mySchool"></property>
+    </bean>
+    
+    <bean name="mySchool" class="com.wmz.di01.School">
+    	<property name="sname" value="清华大学"></property>
+    </bean>
+
+</beans>

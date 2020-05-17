@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- SPEL注入 -->    
+   	
+    <bean name="myStudent" class="com.wmz.di10.Student">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="#{myPersion.pname}"></property>
+    	<property name="age" value="#{myPersion.computeAge()}"></property>
+    	<!-- <property name="age" value="#{myPersion.page>25 ? 25 : myPersion.page}"></property> -->
+    </bean>
+    
+    <bean name="myPersion" class="com.wmz.di10.Persion">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="pname" value="李四"></property>
+    	<property name="page" value="#{T(java.lang.Math).random()*50}"></property>
+    </bean>
+    
+</beans>

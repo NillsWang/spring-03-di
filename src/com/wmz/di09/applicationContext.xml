@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 域属性自动注入 -->
+    <!-- bean definition here -->
+   	<!-- byType方式自动注入：根据域属性的类型到容器中查找具有is-a关系bean进行自动注入
+   		，不允许有多个相同类型的bean对象，或其子类，只能有一个  -->
+    <bean name="myStudent" class="com.wmz.di09.Student" autowire="byType">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="张三"></property>
+    	<property name="age" value="23"></property>
+    </bean>
+    <!-- 自动找到以下School类型对象 ，包括其子类  -->
+    <bean name="mySchool" class="com.wmz.di09.School">
+    	<property name="sname" value="清华大学"></property>
+    </bean>
+    <!-- <bean name="pramirySchool" class="com.wmz.di09.PrimarySchool">
+    	<property name="level" value="6"></property>
+    </bean> -->
+
+</beans>

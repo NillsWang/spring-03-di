@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans 	xmlns="http://www.springframework.org/schema/beans"
+    	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置多个xml文件 -->
+    <!-- bean definition here -->
+    
+    <bean name="teacher" class="com.wmz.di16.Teacher" parent="base">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="recoy"></property>
+    	<property name="workage" value="18"></property>
+    </bean>
+    
+    <bean name="student" class="com.wmz.di16.Student" parent="base">
+    	<!-- 实际上调用了set()方法 -->
+    	<property name="name" value="张三"></property>
+    	<property name="age" value="23"></property>
+    </bean>
+    
+</beans>
